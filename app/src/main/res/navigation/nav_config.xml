@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_config.xml"
+    app:startDestination="@id/one">
+    <fragment
+        android:id="@+id/one"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_one"
+        android:name="com.littonishir.navigation.fragment.OneFragment">
+        <action
+            android:id="@+id/action_one_to_two"
+            app:destination="@id/two" />
+        <action
+            android:id="@+id/action_one_to_share"
+            app:destination="@id/share" />
+        <action
+            android:id="@+id/action_one_to_simple"
+            app:destination="@id/simple" />
+    </fragment>
+    <fragment
+        android:id="@+id/two"
+        tools:layout="@layout/fragment_two"
+        android:name="com.littonishir.navigation.fragment.TwoFragment" >
+        <action
+            android:id="@+id/action_two_to_three"
+            app:destination="@id/three" />
+    </fragment>
+    <fragment
+        android:id="@+id/three"
+        tools:layout="@layout/fragment_three"
+        android:name="com.littonishir.navigation.fragment.ThreeFragment" >
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/one"
+            android:id="@+id/action_three_to_one"
+            app:destination="@id/one" />
+    </fragment>
+
+    <activity
+        android:id="@+id/share"
+        tools:layout="@layout/activity_element_share"
+        android:name="com.littonishir.navigation.ElementShareActivity" />
+    <activity android:id="@+id/simple"
+        tools:layout="@layout/activity_home"
+        android:name="com.littonishir.navigation.bottomsimple.HomeActivity"/>
+</navigation>
